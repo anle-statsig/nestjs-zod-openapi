@@ -9,12 +9,11 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/wahyubucil/nestjs-zod-openapi"
+    "url": "git+https://github.com/anstatsig/nestjs-zod-openapi"
   },
-  "homepage": "https://github.com/wahyubucil/nestjs-zod-openapi#readme",
+  "homepage": "https://github.com/anstatsig/nestjs-zod-openapi#readme",
   "author": {
-    "name": "Wahyu Budi Saputra",
-    "url": "https://www.linkedin.com/in/wahyubucil"
+    "name": "Wahyu Budi Saputra"
   },
   "files": [
     "dist",
