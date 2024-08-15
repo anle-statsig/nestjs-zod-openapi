@@ -1,10 +1,11 @@
+export * from './patch-nest-swagger'
 export {
   CompatibleZodInfer,
-  CompatibleZodType, MergeZodSchemaOutput,
+  CompatibleZodType,
+  createZodDto,
+  MergeZodSchemaOutput,
   ZodDtoStatic,
   ZodValidationPipe,
-  ZodValidationPipeOptions, createZodDto
+  ZodValidationPipeOptions,
 } from '@anatine/zod-nestjs'
 export { extendZodWithOpenApi } from '@asteasolutions/zod-to-openapi'
-export * from './patch-nest-swagger'
-
