@@ -61,6 +61,7 @@
   },
   "dependencies": {
     "@anatine/zod-nestjs": "^2.0.3",
+    "@anatine/zod-openapi": "^2.2.0",
     "@asteasolutions/zod-to-openapi": "^6.2.0",
     "openapi3-ts": "^4.1.2"
   },
