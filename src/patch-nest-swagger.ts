@@ -6,12 +6,13 @@
  *   https://github.com/anatine/zod-plugins/blob/main/packages/zod-nestjs/src/lib/patch-nest-swagger.ts
  */
 import {
-  OpenApiGeneratorV3,
   OpenAPIRegistry,
+  OpenApiGeneratorV3,
 } from '@asteasolutions/zod-to-openapi'
+
 import { INestApplication } from '@nestjs/common'
-import { SwaggerDocumentOptions } from '@nestjs/swagger'
 import type { SchemaObject } from 'openapi3-ts/oas31'
+import { SwaggerDocumentOptions } from '@nestjs/swagger'
 
 interface Type<T = any> extends Function {
   new (...args: any[]): T
@@ -20,6 +21,7 @@ interface Type<T = any> extends Function {
 interface Options {
   /** @default default */
   schemasSort?: 'default' | 'alpha' | 'localeCompare'
+  include?: Function[]
 }
 
 interface Modules {
@@ -31,7 +33,7 @@ export function patchNestjsSwagger(
   options: Options = {},
   modules: Modules = {},
 ) {
-  const { schemasSort = 'default' } = options
+  const { schemasSort = 'default', include = [] } = options
   const {
     schemaObjectFactoryModule = require('@nestjs/swagger/dist/services/schema-object-factory'),
     swaggerScannerModule = require('@nestjs/swagger/dist/swagger-scanner'),
@@ -72,7 +74,13 @@ export function patchNestjsSwagger(
     app: INestApplication,
     options: SwaggerDocumentOptions,
   ) {
-    const openAPIObject = orgScanApplication.call(this, app, options)
+    const openAPIObject = orgScanApplication.call(this, app, {
+      ...options,
+      include:
+        options.include !== undefined
+          ? [...options.include, ...include]
+          : [...include],
+    })
 
     const generator = new OpenApiGeneratorV3(registry.definitions)
     const doc = generator.generateComponents()
