@@ -1,0 +1,84 @@
+{
+  "name": "@anstatsig/nestjs-zod-openapi",
+  "version": "0.1.2",
+  "type": "module",
+  "description": "NestJS helper to easily use Zod with OpenAPI",
+  "license": "MIT",
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wahyubucil/nestjs-zod-openapi"
+  },
+  "homepage": "https://github.com/wahyubucil/nestjs-zod-openapi#readme",
+  "author": {
+    "name": "Wahyu Budi Saputra",
+    "url": "https://www.linkedin.com/in/wahyubucil"
+  },
+  "files": [
+    "dist",
+    "package.json",
+    "LICENSE",
+    "README.md"
+  ],
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    },
+    "./boot": {
+      "types": "./dist/boot.d.ts",
+      "import": "./dist/boot.js",
+      "require": "./dist/boot.cjs"
+    }
+  },
+  "typesVersions": {
+    "*": {
+      "boot": [
+        "./dist/boot.d.ts"
+      ]
+    }
+  },
+  "keywords": [
+    "nestjs",
+    "zod",
+    "openapi",
+    "swagger"
+  ],
+  "engines": {
+    "node": ">=18"
+  },
+  "scripts": {
+    "build-fast": "tsup src/index.ts src/boot.ts --format esm,cjs",
+    "build": "pnpm run build-fast --dts-resolve",
+    "prepublishOnly": "pnpm run build",
+    "release": "np --no-tests --message=\"chore(release): %s\"",
+    "lint": "eslint \"src/**/*.{js,mjs,cjs,ts,mts}\"",
+    "lint:fix": "eslint \"src/**/*.{js,mjs,cjs,ts,mts}\" --fix"
+  },
+  "dependencies": {
+    "@anatine/zod-nestjs": "^2.0.3",
+    "@asteasolutions/zod-to-openapi": "^6.2.0",
+    "openapi3-ts": "^4.1.2"
+  },
+  "peerDependencies": {
+    "@nestjs/common": "^10",
+    "@nestjs/swagger": "^7",
+    "zod": "^3"
+  },
+  "devDependencies": {
+    "@nestjs/common": "^10.2.7",
+    "@nestjs/swagger": "^7.1.14",
+    "@types/node": "^20.8.10",
+    "eslint": "^8.52.0",
+    "eslint-kit": "^10.6.0",
+    "np": "^8.0.4",
+    "prettier": "^3.0.3",
+    "tsup": "^7.2.0",
+    "typescript": "^5.2.2",
+    "zod": "^3.22.4"
+  }
+}
