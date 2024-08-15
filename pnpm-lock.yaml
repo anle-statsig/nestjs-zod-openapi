@@ -3,7 +3,10 @@ lockfileVersion: '6.0'
 dependencies:
   '@anatine/zod-nestjs':
     specifier: ^2.0.3
-    version: 2.0.3(@nestjs/common@10.2.7)(@nestjs/swagger@7.1.14)(openapi3-ts@4.1.2)(zod@3.22.4)
+    version: 2.0.3(@anatine/zod-openapi@2.2.6)(@nestjs/common@10.2.7)(@nestjs/swagger@7.1.14)(openapi3-ts@4.1.2)(zod@3.22.4)
+  '@anatine/zod-openapi':
+    specifier: ^2.2.0
+    version: 2.2.6(openapi3-ts@4.1.2)(zod@3.22.4)
   '@asteasolutions/zod-to-openapi':
     specifier: ^6.2.0
     version: 6.2.0(zod@3.22.4)
@@ -58,7 +61,7 @@ packages:
       '@jridgewell/trace-mapping': 0.3.20
     dev: true
 
-  /@anatine/zod-nestjs@2.0.3(@nestjs/common@10.2.7)(@nestjs/swagger@7.1.14)(openapi3-ts@4.1.2)(zod@3.22.4):
+  /@anatine/zod-nestjs@2.0.3(@anatine/zod-openapi@2.2.6)(@nestjs/common@10.2.7)(@nestjs/swagger@7.1.14)(openapi3-ts@4.1.2)(zod@3.22.4):
     resolution: {integrity: sha512-g/Fwf0xDqsSUvrtxUetwvVLJHycVkgF32EmN6SRfZxuEfweb3+0HZ2i7/9RtXBja11fYzSoZduaDB6snaI79sQ==}
     peerDependencies:
       '@anatine/zod-openapi': ^2.0.1
@@ -67,8 +70,20 @@ packages:
       openapi3-ts: ^4.1.2
       zod: ^3.20.0
     dependencies:
+      '@anatine/zod-openapi': 2.2.6(openapi3-ts@4.1.2)(zod@3.22.4)
       '@nestjs/common': 10.2.7
       '@nestjs/swagger': 7.1.14(@nestjs/common@10.2.7)
+      openapi3-ts: 4.1.2
+      ts-deepmerge: 6.2.0
+      zod: 3.22.4
+    dev: false
+
+  /@anatine/zod-openapi@2.2.6(openapi3-ts@4.1.2)(zod@3.22.4):
+    resolution: {integrity: sha512-Z5sr2Nq2xifEpPbPdUcvyl776LY652oR3VHMV++WFSmRrRL8RDP2XTkbuGn+vgfVNOD7UrndYwCWnxaiw7IZog==}
+    peerDependencies:
+      openapi3-ts: ^4.1.2
+      zod: ^3.20.0
+    dependencies:
       openapi3-ts: 4.1.2
       ts-deepmerge: 6.2.0
       zod: 3.22.4
